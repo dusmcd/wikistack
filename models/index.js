@@ -1,12 +1,11 @@
 const Sequelize = require('sequelize');
 const db = new Sequelize('postgres://localhost:5432/wikistack', {
-  logging: false
+  logging: false,
 });
 
-db.authenticate().
-then(() => {
+db.authenticate().then(() => {
   console.log('connected to the database');
-})
+});
 
 const Page = db.define('page', {
   title: {
@@ -29,18 +28,14 @@ const Page = db.define('page', {
 });
 
 function createSlug(title) {
-  const slug = title.replace(/\s/, '-')
-  return slug
+  const slug = title.replace(/\s/g, '-');
+  return slug;
 }
 
 Page.beforeValidate((pageInstance, options) => {
-  const slug = createSlug(pageInstance.title)
+  const slug = createSlug(pageInstance.title);
   pageInstance.slug = slug;
-})
-
-Page.afterCreate((pageInstance) => {
-  console.log('page title', pageInstance.title)
-})
+});
 
 const User = db.define('user', {
   name: {
