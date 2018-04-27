@@ -13,7 +13,7 @@ app.use('/user', require('./routes/user'));
 app.use('/wiki', require('./routes/wiki'));
 
 app.get('/', (req, res) => {
-  res.send(layout(''));
+  res.redirect('/wiki');
 });
 
 let sync = async () => {
