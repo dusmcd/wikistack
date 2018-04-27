@@ -16,9 +16,10 @@ app.get('/', (req, res) => {
   res.redirect('/wiki');
 });
 
+
 let sync = async () => {
-  await Page.sync();
-  await User.sync();
+  await Page.sync({force: true});
+  await User.sync({force: true});
       app.listen(8080, 'localhost', () => {
         console.log('The server is listening on port 8080');
       });

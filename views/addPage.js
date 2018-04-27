@@ -9,11 +9,11 @@ module.exports = () =>
 
     <div class="form-group">
       <label for="name" class="col-sm-2 control-label">Author Name</label>
-      <input type="text" class="form-control" id="name">
+      <input type="text" class="form-control" id="name" name='authorName'>
     </div>
     <div class="form-group">
       <label for="email" class="col-sm-2 control-label">Author E-mail</label>
-      <input type="text" class="form-control" id="email">
+      <input type="text" class="form-control" id="email" name='email'>
     </div>
     <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Page Title</label>
