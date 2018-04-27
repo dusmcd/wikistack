@@ -51,12 +51,15 @@ router.post('/', async (req, res, next) => {
 router.get('/:slug', async (req, res, next) => {
   const slug = req.params.slug;
   try {
-    const page = await Page.findAll({
+    const page = await Page.findOne({
       where: {
         slug: slug,
       },
     });
-    res.send(viewMethods.wikiPage(page[0]));
+    const user = await User.findById(page.authorId)
+    console.log('user', user, 'authorId', page.authorId)
+    console.log('page', page)
+    res.send(viewMethods.wikiPage(page, user));
   } catch (err) {
     next(err);
   }

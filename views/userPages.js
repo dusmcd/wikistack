@@ -3,6 +3,7 @@ const layout = require("./layout");
 
 module.exports = (user, pages) => layout(html`
   <h3>Pages written by ${user.name}</h3>
+  <h4>Contact them at their email: ${user.email}</h4>
   <hr>
   <form method="GET" action="/wiki/search">
     <input type="text" name="search" />
