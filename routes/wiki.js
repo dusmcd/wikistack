@@ -56,12 +56,14 @@ router.get('/:slug', async (req, res, next) => {
         slug: slug,
       },
     });
-    const user = await User.findById(page.authorId)
-    console.log('user', user, 'authorId', page.authorId)
-    console.log('page', page)
+    const user = await User.findById(page.authorId);
+    console.log('user', user, 'authorId', page.authorId);
+    console.log('page', page);
     res.send(viewMethods.wikiPage(page, user));
   } catch (err) {
-    next(err);
+    res
+      .status(404)
+      .send('<h2>Sorry, this page was not found. Good luck, friend.</h2>');
   }
 });
 
