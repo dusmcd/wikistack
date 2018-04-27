@@ -19,10 +19,11 @@ app.get('/', (req, res) => {
 let sync = async () => {
   await Page.sync();
   await User.sync();
+      app.listen(8080, 'localhost', () => {
+        console.log('The server is listening on port 8080');
+      });
 };
 
 sync();
+// models.db.sync({force: true})
 
-app.listen(8080, 'localhost', () => {
-  console.log('The server is listening on port 8080');
-});

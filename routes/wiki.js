@@ -24,7 +24,7 @@ router.post('/', async (req, res, next) => {
     await Page.create({
       title: postTitle,
       content: postContent,
-    })
+    });
     res.redirect('/');
   } catch(error) {next(error)}
 

@@ -38,6 +38,10 @@ Page.beforeValidate((pageInstance, options) => {
   pageInstance.slug = slug;
 })
 
+Page.afterCreate((pageInstance) => {
+  console.log('page title', pageInstance.title)
+})
+
 const User = db.define('user', {
   name: {
     type: Sequelize.STRING,
